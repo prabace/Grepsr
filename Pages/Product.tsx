@@ -1,9 +1,14 @@
+"use client";
 import React, { useState, useEffect } from 'react';
 import Card from '@/Components/Card';
+import Pagination from '@/Components/Pagination';
 
 const Product = () => {
-  const [products, setProducts] = useState();
+  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(8);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,15 +37,24 @@ const Product = () => {
     fetchData();
   }, []);
 
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentProducts = products.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(products.length / itemsPerPage);
+
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
+  };
+
   return (
-    <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+    <div className='m-40'>
       <h1>Product List</h1>
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
 
-          {products.map((product) => (
+          {currentProducts.map((product) => (
 
             <Card
               key={product.id}
@@ -56,8 +70,14 @@ const Product = () => {
           }
 
         </div>
-
+        
+        
       )}
+ <Pagination
+         currentPage={currentPage}
+         totalPages={totalPages}
+         onPageChange={handlePageChange}
+       />
     </div>
   );
 };
