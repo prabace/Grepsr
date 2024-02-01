@@ -1,13 +1,9 @@
 import React from 'react'
-
-import Product from '@/Pages/Product'
+import ProductDetail from '@/Pages/ProductDetail'
 
 const page = () => {
   return (
-    
-    <Product/>
-   
-    
+    <ProductDetail/>
   )
 }
 

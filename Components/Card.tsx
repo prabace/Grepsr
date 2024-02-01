@@ -6,6 +6,7 @@ const Card = (props) => {
   return (
     <div>
     <div className="border p-4 m-4 rounded shadow-md">
+      
      {props.thumbnail && (
         <>
           <img
