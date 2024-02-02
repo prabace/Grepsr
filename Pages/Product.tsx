@@ -71,9 +71,9 @@ const Product = () => {
 
 
   return (
-    <div className='m-40 '>
+    <div className='md:m-20 2xl:p-10'>
 
-      <div className=' flex grid grid-cols-2 justify-between'>
+      <div className='grid grid-cols-2 justify-between'>
         <div>
           <h1>Product List</h1>
         </div>
@@ -81,8 +81,11 @@ const Product = () => {
           <Dropdown categories={categories} onSelectCategory={handleCategoryChange} />
         </div>
       </div>
+      <div className='flex justify-center items-center'>
       {loading ? (
-        <p>Loading...</p>
+        
+        <img src="/loading.gif" alt="Loading" />
+        
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
 
@@ -96,17 +99,9 @@ const Product = () => {
               rating={product.rating}
               brand={product.brand}
               thumbnail={product.thumbnail}
-              images={product.images}
-
-                {<img
-                  src={product.images[0]}
-                  alt={`product ${product.id}`}
-                  className="max-w-full h-auto my-2"
-                />}
-            
-              
+              images={product.images}  
+              id={product.id}
             />
-
           ))
           }
 
@@ -114,7 +109,7 @@ const Product = () => {
 
 
       )}
-
+      </div>
       <Pagination
         currentPage={currentPage}
         totalPages={totalPages}
