@@ -2,7 +2,7 @@ import React from 'react'
 
 import Product from '@/Main/Product'
 
-const page = () => {
+const ProductPage = () => {
   return (
     
     <Product/>
@@ -11,4 +11,4 @@ const page = () => {
   )
 }
 
-export default page
+export default ProductPage

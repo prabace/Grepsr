@@ -1,7 +1,7 @@
 import React from 'react'
 import Analytics from '@/Main/Analytics'
 
-const page = () => {
+const AnalyticsPage= () => {
   return (
     <div>
         <Analytics/>
@@ -9,4 +9,4 @@ const page = () => {
   )
 }
 
-export default page
+export default AnalyticsPage 
