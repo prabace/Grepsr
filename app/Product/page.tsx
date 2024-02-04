@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Product from '@/Main/Product'
+import Product from '@/Pages/Product'
 
 const ProductPage = () => {
   return (
