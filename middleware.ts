@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { obtain, isExpired } from "@/actions/action";
 
-const protectedRoutes = ["/Product","/analytics"];
+const protectedRoutes = ["/product","/analytics"];
 
 export default async function middleware(request: NextRequest) {
   const userToken = await obtain();

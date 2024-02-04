@@ -1,4 +1,4 @@
-import Login from "@/Pages/Login";
+import Login from "@/Main/Login";
 
 import React from 'react'
 

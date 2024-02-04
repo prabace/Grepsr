@@ -102,7 +102,7 @@ const useForm = () => {
                   const data = await response.json();
                   // localStorage.setItem("userToken", data.token);
                   await create(data.token);
-                  router.push("/Product");
+                  router.push("/product");
                 }
               } catch (error) {
                 console.error("Login failed", error);
