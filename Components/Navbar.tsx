@@ -61,10 +61,10 @@ const Navbar = ({ userToken }: PropsType) => {
     <div className="w-screen h-[80px] shadow-lg relative z-10 ">
     <div className="px-2 flex justify-between items-center w-full h-full">
 
-        <Link href={"/product"}><img className='h-14 mx-8' src="https://s3.amazonaws.com/assets.grepsr.com/static/logo.png" alt="logo"/></Link>
+        <Link href={"/Product"}><img className='h-14 mx-8' src="https://s3.amazonaws.com/assets.grepsr.com/static/logo.png" alt="logo"/></Link>
         <ul className="hidden lg:flex items-center gap-x-60">
             <li className="relative text-xl w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-gradient-to-r from-red-300 via-purple-500 to-pink-600 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-left">
-                <Link className='text-xl font-light tracking-widest' href="/product">PRODUCTS</Link>
+                <Link className='text-xl font-light tracking-widest' href="/Product">PRODUCTS</Link>
             </li>
         
             <li className="relative text-xl w-fit block after:block after:content-[''] after:absolute after:h-[3px] after:bg-gradient-to-r from-red-300 via-purple-500 to-pink-600 after:w-full after:scale-x-0 after:hover:scale-x-100 after:transition after:duration-300 after:origin-left">
@@ -102,7 +102,7 @@ const Navbar = ({ userToken }: PropsType) => {
 
     <ul className={!nav ? 'hidden' : 'absolute bg-white w-full px-8 text-center  lg:hidden'} >
         <li className=" w-full">
-        <Link href="/product">Products</Link>
+        <Link href="/Product">Products</Link>
         </li>
         <li className=" w-full">
         <Link href="/analytics">Analytics</Link>

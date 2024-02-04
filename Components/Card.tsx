@@ -13,7 +13,7 @@ const Card = (props:PropsType) => {
       <div className="border p-4 m-4 rounded shadow-md transition duration-300 ease-in-out hover:scale-110 ">
 
         {props.thumbnail && (
-          <Link href={`/product/${props.id}`}>
+          <Link href={`/Product/${props.id}`}>
             <>
               <img
                 src={props.thumbnail}
@@ -27,7 +27,7 @@ const Card = (props:PropsType) => {
       <div className='p-4 m-4'>
         <div className='grid grid-cols-2 w-full justify-between'>
           <div>
-            <Link href={`/product/${props.id}`}>
+            <Link href={`/Product/${props.id}`}>
               <h3 className='truncate font-bold text-lg'>{props.title}</h3>
             </Link>
           </div>
