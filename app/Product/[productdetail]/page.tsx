@@ -1,7 +1,7 @@
 import React from 'react'
 import { Rating } from '@mui/material';
 
-async function getProduct(productdetail) {
+async function getProduct(productdetail:number) {
   const res = await fetch(`https://dummyjson.com/products/${productdetail}`, {
     next: {
       revalidate: 60
@@ -11,7 +11,7 @@ async function getProduct(productdetail) {
   return res.json()
 }
 
-export default async function page({ params }) {
+export default async function page({ params }:{params:{productdetail:number}}) {
   const product = await getProduct(params.productdetail)
   console.log(product)
 
