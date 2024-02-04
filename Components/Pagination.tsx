@@ -1,6 +1,12 @@
 import React from 'react';
 
-const Pagination = ({ currentPage, totalPages, onPageChange }) => {
+type PropsType = {
+  currentPage: number;
+  totalPages: number;
+  onPageChange: (newPage: number) => void;
+};
+
+const Pagination = ({ currentPage, totalPages, onPageChange }:PropsType) => {
   return (
     <div  className='flex justify-end p-4'>
       {Array.from({ length: totalPages }, (_, index) => (

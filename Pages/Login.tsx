@@ -6,16 +6,11 @@ const Login = () => {
 
        
 
-    //Submit Function
-    const formLogin = () => {
-
-        console.log("Callback function when form is submitted!")
-        console.log("Form Values", values)
-    }
+   
 
 
     //Custom hook call
-    const { handleChange, values, errors, handleSubmit } = useForm(formLogin);
+    const { handleChange, values, errors, handleSubmit } = useForm();
 
 
 
@@ -69,7 +64,7 @@ const Login = () => {
                                 }
                             </div>
                             <div className='flex justify-center items-center'>
-                                <button type="submit" className="text-white rounded-full focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-10 py-2.5 text-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">Sign in</button>
+                                <button type="submit" className="text-white rounded-full focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium text-sm px-10 py-2.5 text-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">Sign in</button>
                             </div>
                             <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                                 Don’t have an account yet? <a href="#" className="font-medium text-primary-600 hover:underline dark:text-primary-500">Sign up</a>

@@ -1,8 +1,12 @@
 import React from 'react'
 import { Rating } from '@mui/material';
 import Link from 'next/link'
+import { ProductType } from '@/types';
 
-const Card = (props) => {
+export interface PropsType
+  extends Omit<ProductType, "discountPercentage" | "stock" | "category"> {}
+
+const Card = (props:PropsType) => {
 
   return (
     <div>
@@ -34,7 +38,7 @@ const Card = (props) => {
         <Rating
           name="read-only"
           precision={0.1}
-          value={parseFloat(props.rating)}
+          value={parseFloat(String(props.rating))}
           readOnly />
 
       </div>

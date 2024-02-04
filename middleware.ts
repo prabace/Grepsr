@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { obtain, isExpired } from "@/actions/action";
 
-const protectedRoutes = ["/product"];
+const protectedRoutes = ["/product","/analytics"];
 
 export default async function middleware(request: NextRequest) {
   const userToken = await obtain();
 
-  if (!userToken && request.nextUrl.pathname.startsWith("/product")) {
+  if (!userToken && protectedRoutes.includes(request.nextUrl.pathname)) {
     const url = request.nextUrl.clone();
     url.pathname = "/";
     return NextResponse.redirect(url);
@@ -15,7 +15,7 @@ export default async function middleware(request: NextRequest) {
   if (userToken) {
     if (
       (await isExpired(userToken.value)) &&
-      request.nextUrl.pathname.startsWith("/product")
+      protectedRoutes.includes(request.nextUrl.pathname)
     ) {
       // Handle token removal or redirection if needed
       console.log("Token has expired");

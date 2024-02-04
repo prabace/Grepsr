@@ -3,9 +3,10 @@ import React, { useState, useEffect } from 'react';
 import Card from '@/Components/Card';
 import Pagination from '@/Components/Pagination';
 import Dropdown from '@/Components/Dropdown';
+import { ProductType } from '@/types';
 
 const Product = () => {
-  const [products, setProducts] = useState([]);
+  const [products, setProducts] = useState<ProductType[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage, setItemsPerPage] = useState(8);
@@ -20,6 +21,7 @@ const Product = () => {
       .then(data => setCategories(data))
       .catch(error => console.error('Error fetching categories:', error));
   })
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -60,11 +62,11 @@ const Product = () => {
   const currentProducts = products.slice(indexOfFirstItem, indexOfLastItem);
   const totalPages = Math.ceil(products.length / itemsPerPage);
 
-  const handlePageChange = (newPage) => {
+  const handlePageChange = (newPage:number) => {
     setCurrentPage(newPage);
   };
 
-  const handleCategoryChange = (newCategory) => {
+  const handleCategoryChange = (newCategory:string) => {
     setSelectedCategory(newCategory);
     setCurrentPage(1); // Reset page when changing category
   };

@@ -1,16 +1,21 @@
 "use client"
 import React, { useState } from 'react';
 import { omit } from 'lodash';
-import { callbackify } from 'util';
 import { create } from '@/actions/action';
 import { useRouter } from 'next/navigation';
 
-const useForm = (callback) => {
+interface FormErrors {
+    username?: string;
+    password?: string;
+   
+  }
+
+const useForm = () => {
 
     const [values, setValues] = useState({})
-    const [errors, setErrors] = useState({})
+    const [errors, setErrors] = useState<FormErrors>({});
     const router = useRouter()
-    const validate = (event, name, value) => {
+    const validate = (name:string, value:string) => {
 
 
         switch (name) {
@@ -55,7 +60,7 @@ const useForm = (callback) => {
         let name = event.target.name;
         let value = event.target.value;
 
-        validate(event, name, value);
+        validate(name, value);
 
         setValues({
             ...values,
@@ -65,11 +70,11 @@ const useForm = (callback) => {
     }
 
 
-    const  handleSubmit = async(event: React.ChangeEvent<HTMLInputElement>) => {
+    const  handleSubmit = async(event: React.FormEvent<HTMLFormElement>) => {
         if(event) event.preventDefault()
         
         if(Object.keys(errors).length === 0 && Object.keys(values).length !== 0 ){
-            callback();
+          
             
             try {
                
