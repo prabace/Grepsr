@@ -16,8 +16,8 @@ export default async function page({ params }) {
   console.log(product)
 
   return (
-    <div className='md:bg-[#F4F4F4] sm:bg-none text-[#5F6B6E] sm:h-screen md:h-[100%] lg:h-screen grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 lg:gap-x-10 xl:gap-x-40 py-4 px-2 md:p-20 lg:p-10 xl:p-20 2xl:p-40'>
-      <div className='flex justify-center items-center bg-[#E8E8E8] lg:h-[525px] xl:h-auto lg:mt-20 md:shadow-2xl rounded-2xl  '>
+    <div className='md:bg-[#F4F4F4] sm:bg-none text-[#5F6B6E] sm:h-screen md:h-[100%] lg:h-screen grid sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 lg:gap-x-10 xl:gap-x-40 py-4 px-2 md:p-20 lg:p-10 xl:p-20 2xl:px-40'>
+      <div className='flex justify-center items-center bg-[#E8E8E8] lg:h-[545px] xl:h-[560px] 2xl:h-[565px]  lg:mt-20 md:shadow-2xl rounded-2xl  '>
         <div className=' lg:mx-48 md:my-20 md:h-72 '>
         {product.thumbnail && (
         <>

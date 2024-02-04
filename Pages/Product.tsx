@@ -71,16 +71,25 @@ const Product = () => {
 
 
   return (
-    <div className='md:m-20 2xl:p-10'>
+    <div className='md:m-20 2xl:px-10'>
 
-      <div className='grid grid-cols-2 justify-between'>
-        <div>
-          <h1>Product List</h1>
+      <div >
+        {loading?(
+          <div>
+          </div>
+        ) : (
+          <div className='grid grid-cols-2 justify-between'>
+         <div className='mx-4 mb-4'>
+          <p className='text-2xl font-light tracking-wide'>CHOOSE YOUR PRODUCT</p>
         </div>
         <div className='flex justify-end'>
           <Dropdown categories={categories} onSelectCategory={handleCategoryChange} />
+        
         </div>
+        </div>
+      )}
       </div>
+       
       <div className='flex justify-center items-center'>
       {loading ? (
         

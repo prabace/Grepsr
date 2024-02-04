@@ -8,7 +8,7 @@ const Pagination = ({ currentPage, totalPages, onPageChange }) => {
         <button 
           key={index + 1}
           onClick={() => onPageChange(index + 1)}
-          className={`border-2 px-2 m-1 hover:bg-gray-400 hover:text-white focus:bg-slate-400 focus:text-white  ${currentPage === index + 1 ? 'active' : ''}`}
+          className={`border-2 px-2 m-1 hover:bg-[#F9A76C] hover:border-none hover:text-white focus:bg-[#F9A76C] focus:text-white  ${currentPage === index + 1 ? 'active' : ''}`}
         >
           {index + 1}
         </button>

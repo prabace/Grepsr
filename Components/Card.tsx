@@ -6,7 +6,7 @@ const Card = (props) => {
 
   return (
     <div>
-      <div className="border p-4 m-4 rounded shadow-md">
+      <div className="border p-4 m-4 rounded shadow-md transition duration-300 ease-in-out hover:scale-110 ">
 
         {props.thumbnail && (
           <Link href={`/product/${props.id}`}>

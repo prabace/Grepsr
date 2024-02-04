@@ -2,12 +2,14 @@
 import React, { useState } from 'react';
 import { omit } from 'lodash';
 import { callbackify } from 'util';
+import { create } from '@/actions/action';
+import { useRouter } from 'next/navigation';
 
 const useForm = (callback) => {
 
     const [values, setValues] = useState({})
     const [errors, setErrors] = useState({})
-
+    const router = useRouter()
     const validate = (event, name, value) => {
 
 
@@ -63,11 +65,44 @@ const useForm = (callback) => {
     }
 
 
-    const handleSubmit = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const  handleSubmit = async(event: React.ChangeEvent<HTMLInputElement>) => {
         if(event) event.preventDefault()
         
         if(Object.keys(errors).length === 0 && Object.keys(values).length !== 0 ){
             callback();
+            
+            try {
+               
+                console.log("hello")
+                const usersResponse = await fetch("https://dummyjson.com/users");
+                const usersData = await usersResponse.json();
+          
+                // Randomly select a user
+                const randomUser =
+                  usersData.users[Math.floor(Math.random() * usersData.users.length)];
+                console.log("🚀 ~ handleFormSubmit ~ randomUser:", randomUser);
+          
+                const response = await fetch("https://dummyjson.com/auth/login", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({
+                    username: randomUser.username,
+                    password: randomUser.password,
+                    expiresInMins: 180,
+                  }),
+                });
+                if (response.ok) {
+                  const data = await response.json();
+                  // localStorage.setItem("userToken", data.token);
+                  await create(data.token);
+                  router.push("/product");
+                }
+              } catch (error) {
+                console.error("Login failed", error);
+              }
+
         }
         else
         {
