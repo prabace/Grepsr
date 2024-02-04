@@ -11,7 +11,7 @@ async function getProduct(productdetail:number) {
   return res.json()
 }
 
-export default async function page({ params }:{params:{productdetail:number}}) {
+export default async function ProductDetail({ params }:{params:{productdetail:number}}) {
   const product = await getProduct(params.productdetail)
   console.log(product)
 
